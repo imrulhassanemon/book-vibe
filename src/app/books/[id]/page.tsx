@@ -11,9 +11,13 @@ interface BookId {
 }
 
 const getbooks = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
+  try{
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
   const data: IBook[] = await response.json();
   return data;
+  }catch(err){
+    console.log(err);
+  }
 };
 
 
@@ -23,7 +27,7 @@ const BookDetails = async ({params}:BookId) => {
 
     const BookData = await getbooks()
 
-    const book = BookData.find((book: IBook) => book.bookId === parseInt(id))
+    const book = BookData?.find((book: IBook) => book.bookId === parseInt(id))
 
     if (!book) {
         return <div className="py-10 text-center">Book not found</div>;

@@ -5,9 +5,13 @@ import BookCard from '../component/BookCard';
 
 
 const getbooks = async()=> {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
+    try{
+        const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/booksData.json`);
     const data = await response.json()
     return data
+    }catch(err){
+        console.log(err);
+    }
 }
 
 
