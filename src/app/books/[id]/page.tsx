@@ -12,7 +12,7 @@ interface BookId {
 
 const getbooks = async () => {
   const response = await fetch("http://localhost:3000/booksData.json");
-  const data = await response.json();
+  const data: IBook[] = await response.json();
   return data;
 };
 
@@ -24,6 +24,10 @@ const BookDetails = async ({params}:BookId) => {
     const BookData = await getbooks()
 
     const book = BookData.find((book: IBook) => book.bookId === parseInt(id))
+
+    if (!book) {
+        return <div className="py-10 text-center">Book not found</div>;
+    }
 
 
 

@@ -57,17 +57,6 @@ const data = readBooks.map((book : IBook, index : number) => {
     }
 })
 
-// [
-//   {
-//     name: 'Page E',
-//     uv: 1890,
-//     pv: 4800,
-//     amt: 2181,
-//   },
-// ];
-
-
-
 const TriangleBar = (props: BarShapeProps) => {
   const { x, y, width, height, index } = props;
 
@@ -123,58 +112,3 @@ const TriangleBar = (props: BarShapeProps) => {
 };
 
 export default ReadBooks;
-
-
-
-
-
-
-
-
-
-
-// "use client";
-
-// import { BooksContext } from "@/context/BooksContext";
-// import { useContext } from "react";
-
-// import {
-//   BarChart,
-//   Bar,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   ResponsiveContainer,
-// } from "recharts";
-
-// const ReadBooks = () => {
-//   const { readBooks } = useContext(BooksContext);
-
-//   const data = readBooks.map((book, index) => ({
-//     name: book.bookName,
-//     value: index + 1,
-//   }));
-
-//   return (
-//     <div className="container mx-auto my-10">
-//       <div className="w-full h-[500px]">
-//         <ResponsiveContainer width="100%" height="100%">
-//           <BarChart data={data}>
-//             <CartesianGrid strokeDasharray="3 3" />
-
-//             <XAxis dataKey="name" />
-
-//             <YAxis />
-
-//             <Tooltip />
-
-//             <Bar dataKey="value" fill="#0088FE" />
-//           </BarChart>
-//         </ResponsiveContainer>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ReadBooks;

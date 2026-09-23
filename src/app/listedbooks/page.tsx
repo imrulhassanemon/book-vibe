@@ -93,7 +93,7 @@ const ListedBooks = () => {
             This is WishList
           </h3>
           {wishList.length > 0 ? (
-            wishList.map((book, index) => (
+            wishList.map((book: IBook, index: number) => (
               <ListedBookCard key={index} book={book}></ListedBookCard>
             ))
           ) : (

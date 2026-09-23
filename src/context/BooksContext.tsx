@@ -1,14 +1,28 @@
 'use client'
 import React, { createContext, ReactNode, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-export const BooksContext = createContext({})
+import { IBook } from "@/types/books.type";
+
+interface BooksContextType {
+    readBooks: IBook[];
+    setReadBooks: React.Dispatch<React.SetStateAction<IBook[]>>;
+    wishList: IBook[];
+    setWishList: React.Dispatch<React.SetStateAction<IBook[]>>;
+}
+
+export const BooksContext = createContext<BooksContextType>({
+    readBooks: [],
+    setReadBooks: () => {},
+    wishList: [],
+    setWishList: () => {},
+})
 
 const BooksProvider = ({children}: {children: ReactNode}) => {
 
-    const [readBooks, setReadBooks] = useState([])
-    const [wishList, setWishList] = useState([])
+    const [readBooks, setReadBooks] = useState<IBook[]>([])
+    const [wishList, setWishList] = useState<IBook[]>([])
 
-    const sharedData = {
+    const sharedData: BooksContextType = {
         readBooks,
         setReadBooks,
         wishList,
