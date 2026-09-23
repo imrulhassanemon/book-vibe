@@ -4,6 +4,7 @@ import { useContext } from "react";
 import ListedBookCard from "../component/ListedBookCard";
 import { BookOpen, Search } from "lucide-react";
 import Link from "next/link";
+import { IBook } from "@/types/books.type";
 
 const ListedBooks = () => {
   const { readBooks, wishList } = useContext(BooksContext);
@@ -29,7 +30,7 @@ const ListedBooks = () => {
           <h3 className="mx-auto flex justify-center text-3xl font-bold pb-5">
             This is ReadBooks
           </h3>
-          {readBooks.length> 0 ? readBooks.map((book, index) => (
+          {readBooks.length> 0 ? readBooks.map((book: IBook, index: number) => (
             <ListedBookCard key={index} book={book}></ListedBookCard>
           )): <div className="flex min-h-[500px] items-center justify-center rounded-3xl border border-dashed border-slate-200 bg-gradient-to-br from-white via-slate-50 to-indigo-50/40 px-6 py-16">
               <div className="flex max-w-md flex-col items-center text-center">
