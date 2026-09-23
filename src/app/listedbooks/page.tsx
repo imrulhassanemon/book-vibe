@@ -9,9 +9,6 @@ import { IBook } from "@/types/books.type";
 const ListedBooks = () => {
   const { readBooks, wishList } = useContext(BooksContext);
 
-  console.log("readbooks", readBooks);
-  console.log("wishlist", wishList);
-
   return (
     <>
       {/* name of each tab group should be unique */}
@@ -32,7 +29,7 @@ const ListedBooks = () => {
           </h3>
           {readBooks.length> 0 ? readBooks.map((book: IBook, index: number) => (
             <ListedBookCard key={index} book={book}></ListedBookCard>
-          )): <div className="flex min-h-[500px] items-center justify-center rounded-3xl border border-dashed border-slate-200 bg-gradient-to-br from-white via-slate-50 to-indigo-50/40 px-6 py-16">
+          )): <div className="flex min-h-125 items-center justify-center rounded-3xl border border-dashed border-slate-200 bg-gradient-to-br from-white via-slate-50 to-indigo-50/40 px-6 py-16">
               <div className="flex max-w-md flex-col items-center text-center">
                 {/* Icon */}
                 <div className="relative mb-7">
@@ -97,7 +94,7 @@ const ListedBooks = () => {
               <ListedBookCard key={index} book={book}></ListedBookCard>
             ))
           ) : (
-            <div className="flex min-h-[500px] items-center justify-center rounded-3xl border border-dashed border-slate-200 bg-gradient-to-br from-white via-slate-50 to-indigo-50/40 px-6 py-16">
+            <div className="flex min-h-125 items-center justify-center rounded-3xl border border-dashed border-slate-200 bg-gradient-to-br from-white via-slate-50 to-indigo-50/40 px-6 py-16">
               <div className="flex max-w-md flex-col items-center text-center">
                 {/* Icon */}
                 <div className="relative mb-7">
